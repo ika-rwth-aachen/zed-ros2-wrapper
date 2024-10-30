@@ -15,7 +15,7 @@ if(DEFINED ENV{ROS_DISTRO})
     #message("* Found ROS2 ${FOUND_ROS2_DISTRO}")
 else()
     message("* ROS2 distro variable not set. Trying to figure it out...")
-    set(ROS2_DISTROS "ardent;crystal;dashing;eloquent;foxy;galactic;humble;rolling")
+    set(ROS2_DISTROS "ardent;crystal;dashing;eloquent;foxy;galactic;humble;jazzy;rolling")
     set(ROS2_FOUND FALSE)
     foreach(distro ${ROS2_DISTROS})
         if(NOT ROS2_FOUND)
@@ -39,6 +39,9 @@ if(ROS2_FOUND)
     elseif(${FOUND_ROS2_DISTRO} STREQUAL "humble")
         #message("* ROS2 ${FOUND_ROS2_DISTRO} is officially supported by this package.")
         add_definitions(-DFOUND_HUMBLE)
+    elseif(${FOUND_ROS2_DISTRO} STREQUAL "jazzy")
+        #message("* ROS2 ${FOUND_ROS2_DISTRO} is officially supported by this package.")
+        add_definitions(-DFOUND_JAZZY)
     else()
         message("*** WARNING *** ROS2 ${FOUND_ROS2_DISTRO} is not officially supported by the package '${PROJECT_NAME}'. Correct operation is not guaranteed.")
     endif()
@@ -96,7 +99,7 @@ set(DEPENDENCIES
     tf2
     tf2_ros
     tf2_geometry_msgs
-    geometry_msgs    
+    geometry_msgs
     nav_msgs
     nmea_msgs
     geographic_msgs
@@ -188,7 +191,7 @@ set(SL_TOOLS_SRC
 set(ZED_CAMERA_INC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/include/visibility_control.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/zed_camera/include/sl_types.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/zed_camera/include/zed_camera_component.hpp    
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/zed_camera/include/zed_camera_component.hpp
 )
 
 set(ZED_CAMERA_SRC
