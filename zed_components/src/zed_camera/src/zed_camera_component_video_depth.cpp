@@ -119,69 +119,69 @@ void ZedCamera::initVideoDepthPublishers()
       };
 
     if (mPublishImgRgb) {
-      mPubRgb = image_transport::create_publisher(this, mRgbTopic, qos);
+      mPubRgb = image_transport::create_publisher(this, mRgbTopic, qos, mPubOpt);
       log_cam_pub(mPubRgb);
       if (mPublishImgGray) {
-        mPubRgbGray = image_transport::create_publisher(this, mRgbGrayTopic, qos);
+        mPubRgbGray = image_transport::create_publisher(this, mRgbGrayTopic, qos, mPubOpt);
         log_cam_pub(mPubRgbGray);
       }
       if (mPublishImgRaw) {
-        mPubRawRgb = image_transport::create_publisher(this, mRgbRawTopic, qos);
+        mPubRawRgb = image_transport::create_publisher(this, mRgbRawTopic, qos, mPubOpt);
         log_cam_pub(mPubRawRgb);
       }
       if (mPublishImgRaw && mPublishImgGray) {
-        mPubRawRgbGray = image_transport::create_publisher(this, mRgbRawGrayTopic, qos);
+        mPubRawRgbGray = image_transport::create_publisher(this, mRgbRawGrayTopic, qos, mPubOpt);
         log_cam_pub(mPubRawRgbGray);
       }
     }
     if (mPublishImgLeftRight) {
-      mPubLeft = image_transport::create_publisher(this, mLeftTopic, qos);
+      mPubLeft = image_transport::create_publisher(this, mLeftTopic, qos, mPubOpt);
       log_cam_pub(mPubLeft);
-      mPubRight = image_transport::create_publisher(this, mRightTopic, qos);
+      mPubRight = image_transport::create_publisher(this, mRightTopic, qos, mPubOpt);
       log_cam_pub(mPubRight);
       if (mPublishImgGray) {
-        mPubLeftGray = image_transport::create_publisher(this, mLeftGrayTopic, qos);
+        mPubLeftGray = image_transport::create_publisher(this, mLeftGrayTopic, qos, mPubOpt);
         log_cam_pub(mPubLeftGray);
 
-        mPubRightGray = image_transport::create_publisher(this, mRightGrayTopic, qos);
+        mPubRightGray = image_transport::create_publisher(this, mRightGrayTopic, qos, mPubOpt);
         log_cam_pub(mPubRightGray);
       }
       if (mPublishImgRaw) {
-        mPubRawLeft = image_transport::create_publisher(this, mLeftRawTopic, qos);
+        mPubRawLeft = image_transport::create_publisher(this, mLeftRawTopic, qos, mPubOpt);
         log_cam_pub(mPubRawLeft);
-        mPubRawRight = image_transport::create_publisher(this, mRightRawTopic, qos);
+        mPubRawRight = image_transport::create_publisher(this, mRightRawTopic, qos, mPubOpt);
         log_cam_pub(mPubRawRight);
       }
 
       if (mPublishImgRaw && mPublishImgGray) {
-        mPubRawLeftGray = image_transport::create_publisher(this, mLeftRawGrayTopic, qos);
+        mPubRawLeftGray = image_transport::create_publisher(this, mLeftRawGrayTopic, qos, mPubOpt);
         log_cam_pub(mPubRawLeftGray);
-        mPubRawRightGray = image_transport::create_publisher(this, mRightRawGrayTopic, qos);
+        mPubRawRightGray = image_transport::create_publisher(this, mRightRawGrayTopic, qos, mPubOpt);
         log_cam_pub(mPubRawRightGray);
       }
     }
 
     if (!mDepthDisabled) {
       if (mPublishImgRoiMask && (mAutoRoiEnabled || mManualRoiEnabled)) {
-        mPubRoiMask = image_transport::create_publisher(this, mRoiMaskTopic, qos);
+        mPubRoiMask = image_transport::create_publisher(this, mRoiMaskTopic, qos, mPubOpt);
         log_cam_pub(mPubRoiMask);
       }
       if (mPublishDepthMap) {
-        mPubDepth = image_transport::create_publisher(this, mDepthTopic, qos);
+        mPubDepth = image_transport::create_publisher(this, mDepthTopic, qos, mPubOpt);
         log_cam_pub(mPubDepth);
       }
       if (mPublishConfidence) {
-        mPubConfMap = image_transport::create_publisher(this, mConfMapTopic, qos);
+        mPubConfMap = image_transport::create_publisher(this, mConfMapTopic, qos, mPubOpt);
         log_cam_pub(mPubConfMap);
       }
     }
 
     if (mPublishImgStereo) {
-      mPubStereo = image_transport::create_publisher(this, mStereoTopic, qos);
+      mPubStereo = image_transport::create_publisher(this, mStereoTopic, qos, mPubOpt);
       log_cam_pub(mPubStereo);
 
       if (mPublishImgRaw) {
-        mPubRawStereo = image_transport::create_publisher(this, mStereoRawTopic, qos);
+        mPubRawStereo = image_transport::create_publisher(this, mStereoRawTopic, qos, mPubOpt);
         log_cam_pub(mPubRawStereo);
       }
     }
